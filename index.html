@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samuca Carnes — Melhor carne da região</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:       #D4500A;
+      --orange-dark:  #9C3300;
+      --orange-light: #F06020;
+      --gold:         #C9A227;
+      --gold-light:   #F0C84A;
+      --bg:           #0D0500;
+      --bg2:          #180900;
+      --bg3:          #220D00;
+      --text:         #F5EDE0;
+      --muted:        #A08060;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,5,0,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,162,39,0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .nav-logo span { color: var(--orange-light); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      color: var(--muted); text-decoration: none;
+      font-size: .85rem; font-weight: 500; letter-spacing: .5px;
+      transition: color .2s;
+    }
+    nav ul a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,80,10,.25) 0%, transparent 70%),
+        var(--bg);
+      padding: 80px 2rem 2rem;
+    }
+    .hero-glow {
+      position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(212,80,10,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      text-align: center; position: relative; z-index: 1;
+      max-width: 820px;
+    }
+    .hero-logo-wrap {
+      width: 200px; height: 200px; margin: 0 auto 2rem;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      box-shadow:
+        0 0 40px rgba(201,162,39,.35),
+        0 0 80px rgba(212,80,10,.25);
+      overflow: hidden;
+      background: #fff;
+    }
+    .hero-logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a0800;
+      font-size: .7rem; font-weight: 700; letter-spacing: 2px;
+      padding: .35rem 1rem; border-radius: 20px;
+      text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, var(--gold-light) 50%, var(--orange-light) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: .5rem;
+    }
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--orange-light); margin-bottom: 1.5rem;
+    }
+    .hero-slogan {
+      font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem;
+      letter-spacing: .5px;
+    }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      color: #fff; font-weight: 600; font-size: .95rem;
+      padding: .85rem 2rem; border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(212,80,10,.5);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,80,10,.7); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 2px solid var(--gold);
+      color: var(--gold); font-weight: 600; font-size: .95rem;
+      padding: .85rem 2rem; border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .btn-outline:hover { background: var(--gold); color: #1a0800; transform: translateY(-2px); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: .4;
+    }
+
+    /* ── SECTION ── */
+    section { padding: 5rem 2rem; }
+    .section-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-title span { color: var(--orange-light); }
+    .section-desc { color: var(--muted); max-width: 540px; line-height: 1.7; }
+
+    /* ── PRODUCTS ── */
+    #produtos { background: var(--bg2); }
+    .products-header { text-align: center; margin-bottom: 3.5rem; }
+    .products-header .section-desc { margin: 0 auto; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
+    .product-card {
+      background: var(--bg3);
+      border: 1px solid rgba(201,162,39,.15);
+      border-radius: 16px; padding: 2rem 1.5rem;
+      text-align: center;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
+    }
+    .product-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--gold));
+      transform: scaleX(0); transition: transform .3s;
+    }
+    .product-card:hover { transform: translateY(-6px); border-color: rgba(201,162,39,.4); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+    .product-card:hover::before { transform: scaleX(1); }
+    .product-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--gold-light); margin-bottom: .5rem;
+    }
+    .product-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── DIFERENCIAIS ── */
+    #diferenciais { background: var(--bg); }
+    .diff-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .diff-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
+    .diff-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--bg3);
+      border: 1px solid rgba(201,162,39,.1);
+      border-radius: 12px; padding: 1.2rem;
+      transition: border-color .3s;
+    }
+    .diff-list li:hover { border-color: rgba(212,80,10,.4); }
+    .diff-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .diff-text strong { display: block; color: var(--text); font-size: .95rem; margin-bottom: .2rem; }
+    .diff-text span { font-size: .82rem; color: var(--muted); }
+    .diff-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid rgba(201,162,39,.15);
+      border-radius: 16px; padding: 2rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--gold), var(--orange-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+
+    /* ── HORÁRIOS ── */
+    #horarios { background: var(--bg2); }
+    .horarios-inner { max-width: 900px; margin: 0 auto; }
+    .horarios-header { text-align: center; margin-bottom: 3rem; }
+    .horarios-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;
+    }
+    .hora-row {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--bg3);
+      border: 1px solid rgba(201,162,39,.1);
+      border-radius: 12px; padding: 1rem 1.5rem;
+      transition: border-color .3s;
+    }
+    .hora-row:hover { border-color: rgba(212,80,10,.3); }
+    .hora-dia { font-weight: 500; font-size: .9rem; }
+    .hora-time {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-light); font-weight: 700;
+    }
+
+    /* ── CONTATO ── */
+    #contato { background: var(--bg); }
+    .contato-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    }
+    .contato-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .contato-card {
+      display: flex; align-items: center; gap: 1.2rem;
+      background: var(--bg3);
+      border: 1px solid rgba(201,162,39,.12);
+      border-radius: 14px; padding: 1.3rem 1.5rem;
+      text-decoration: none; color: inherit;
+      transition: border-color .3s, transform .2s;
+    }
+    .contato-card:hover { border-color: var(--gold); transform: translateX(4px); }
+    .contato-card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .icon-wa { background: rgba(37,211,102,.15); }
+    .icon-phone { background: rgba(212,80,10,.15); }
+    .icon-map { background: rgba(201,162,39,.15); }
+    .icon-ig { background: rgba(131,58,180,.15); }
+    .contato-card-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .contato-card-val { font-weight: 600; font-size: .95rem; color: var(--text); }
+    .map-embed {
+      border-radius: 20px; overflow: hidden;
+      border: 2px solid rgba(201,162,39,.2);
+      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+    }
+    .map-embed iframe { display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080300;
+      border-top: 1px solid rgba(201,162,39,.15);
+      padding: 2.5rem 2rem; text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 900; color: var(--gold);
+      margin-bottom: .5rem;
+    }
+    .footer-logo span { color: var(--orange-light); }
+    footer p { font-size: .8rem; color: var(--muted); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+      background: #25D366;
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; box-shadow: 0 4px 20px rgba(37,211,102,.5);
+      text-decoration: none;
+      animation: pulse-wa 2s infinite;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    @keyframes pulse-wa {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.5); }
+      50%      { box-shadow: 0 4px 40px rgba(37,211,102,.8); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .diff-inner, .contato-inner { grid-template-columns: 1fr; gap: 2rem; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Samuca<span>Carnes</span></div>
+  <ul>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#diferenciais">Diferenciais</a></li>
+    <li><a href="#horarios">Horários</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-logo-wrap">
+      <img src="logo.jpeg" alt="Samuca Carnes Logo" />
+    </div>
+    <div class="hero-badge">⭐ Melhor carne da região</div>
+    <h1 class="hero-title">Samuca</h1>
+    <p class="hero-sub">Carnes</p>
+    <p class="hero-slogan">Cortes nobres selecionados · Entrega em toda a região · Promoções toda semana</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562981363653" target="_blank" class="btn-primary">
+        📱 Fazer Pedido
+      </a>
+      <a href="#produtos" class="btn-outline">
+        🥩 Ver Produtos
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="products-header">
+    <p class="section-label">Nosso Cardápio</p>
+    <h2 class="section-title">O melhor da <span>mesa brasileira</span></h2>
+    <p class="section-desc">Seleção premium de carnes, hortifrúti e muito mais — tudo com qualidade garantida e entrega na sua porta.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon">🥩</div>
+      <div class="product-name">Cortes Nobres</div>
+      <div class="product-desc">Picanha, contrafilé, fraldinha e muito mais. Carne de qualidade premium, sempre fresca.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🦴</div>
+      <div class="product-name">Costela Gaúcha</div>
+      <div class="product-desc">Tradição gaúcha no seu churrasco. Costela selecionada para um assado perfeito.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🐷</div>
+      <div class="product-name">Banha de Porco</div>
+      <div class="product-desc">Produto artesanal de qualidade, ideal para temperos e receitas tradicionais.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🥦</div>
+      <div class="product-name">Verdurão</div>
+      <div class="product-desc">Verduras e legumes frescos selecionados, direto para sua mesa com qualidade.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🍎</div>
+      <div class="product-name">Frutaria</div>
+      <div class="product-desc">Frutas da estação, frescas e saborosas. Seleção diária para garantir a melhor qualidade.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🥤</div>
+      <div class="product-name">Bebidas</div>
+      <div class="product-desc">Refrigerantes, sucos e bebidas geladas. Tudo para completar seu churrasco.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🧂</div>
+      <div class="product-name">Temperos Prontos</div>
+      <div class="product-desc">Temperos selecionados para realçar o sabor das suas carnes e pratos.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🪨</div>
+      <div class="product-name">Carvão</div>
+      <div class="product-desc">Carvão de qualidade para um churrasco sem fumaça excessiva e com calor ideal.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="diff-inner">
+    <div>
+      <p class="section-label">Por que nos escolher</p>
+      <h2 class="section-title">Qualidade que <span>você sente</span></h2>
+      <p class="section-desc">Mais que uma loja de carnes — somos o parceiro certo para o seu churrasco e sua mesa do dia a dia.</p>
+      <ul class="diff-list">
+        <li>
+          <div class="diff-icon">🚚</div>
+          <div class="diff-text">
+            <strong>Entrega em toda a região</strong>
+            <span>Levamos até você com rapidez e cuidado, garantindo a qualidade do produto.</span>
+          </div>
+        </li>
+        <li>
+          <div class="diff-icon">🏷️</div>
+          <div class="diff-text">
+            <strong>Promoções toda semana</strong>
+            <span>Ofertas especiais semanais para você economizar sem abrir mão da qualidade.</span>
+          </div>
+        </li>
+        <li>
+          <div class="diff-icon">🔪</div>
+          <div class="diff-text">
+            <strong>Cortes personalizados</strong>
+            <span>Carnes cortadas do jeito que você prefere, por profissionais experientes.</span>
+          </div>
+        </li>
+        <li>
+          <div class="diff-icon">⭐</div>
+          <div class="diff-text">
+            <strong>Seleção premium garantida</strong>
+            <span>Somente os melhores produtos chegam até o nosso açougue.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="diff-stats">
+      <div class="stat-card">
+        <div class="stat-num">816+</div>
+        <div class="stat-label">Seguidores no Instagram</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">7d</div>
+        <div class="stat-label">Aberto toda semana</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">13h</div>
+        <div class="stat-label">Por dia de atendimento</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Qualidade garantida</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HORÁRIOS -->
+<section id="horarios">
+  <div class="horarios-inner">
+    <div class="horarios-header">
+      <p class="section-label">Quando nos visitar</p>
+      <h2 class="section-title">Horário de <span>Funcionamento</span></h2>
+    </div>
+    <div class="horarios-grid">
+      <div class="hora-row"><span class="hora-dia">Segunda-feira</span><span class="hora-time">07:00 – 20:30</span></div>
+      <div class="hora-row"><span class="hora-dia">Terça-feira</span><span class="hora-time">07:00 – 20:30</span></div>
+      <div class="hora-row"><span class="hora-dia">Quarta-feira</span><span class="hora-time">07:00 – 20:30</span></div>
+      <div class="hora-row"><span class="hora-dia">Quinta-feira</span><span class="hora-time">07:00 – 20:30</span></div>
+      <div class="hora-row"><span class="hora-dia">Sexta-feira</span><span class="hora-time">07:00 – 20:30</span></div>
+      <div class="hora-row"><span class="hora-dia">Sábado</span><span class="hora-time">07:00 – 20:30</span></div>
+      <div class="hora-row" style="border-color:rgba(201,162,39,.3)"><span class="hora-dia">Domingo</span><span class="hora-time" style="color:var(--orange-light)">07:30 – 14:00</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-inner">
+    <div>
+      <p class="section-label">Fale conosco</p>
+      <h2 class="section-title">Venha nos <span>visitar</span></h2>
+      <p class="section-desc">Estamos em Goiânia, prontos para atender você com o melhor em carnes e produtos frescos.</p>
+      <div class="contato-cards">
+        <a href="https://wa.me/5562981363653" target="_blank" class="contato-card">
+          <div class="contato-card-icon icon-wa">📱</div>
+          <div>
+            <div class="contato-card-label">WhatsApp — Pedidos</div>
+            <div class="contato-card-val">(62) 98136-3653</div>
+          </div>
+        </a>
+        <a href="tel:6235586606" class="contato-card">
+          <div class="contato-card-icon icon-phone">📞</div>
+          <div>
+            <div class="contato-card-label">Telefone</div>
+            <div class="contato-card-val">(62) 3558-6606</div>
+          </div>
+        </a>
+        <a href="https://maps.google.com/?q=Av.+Berlim+Parque+Industrial+Joao+Braz+Goiania" target="_blank" class="contato-card">
+          <div class="contato-card-icon icon-map">📍</div>
+          <div>
+            <div class="contato-card-label">Endereço</div>
+            <div class="contato-card-val">Av. Berlim, Parque Industrial João Braz — Goiânia, GO</div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/samucacarnes" target="_blank" class="contato-card">
+          <div class="contato-card-icon icon-ig">📸</div>
+          <div>
+            <div class="contato-card-label">Instagram</div>
+            <div class="contato-card-val">@samucacarnes</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.6!2d-49.22!3d-16.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQzJzEyLjAiUyA0OcKwMTMnMTIuMCJX!5e0!3m2!1spt!2sbr!4v1620000000000!5m2!1spt!2sbr"
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Samuca<span>Carnes</span></div>
+  <p>"Melhor carne da região" · Goiânia, GO</p>
+  <p style="margin-top:.5rem">© 2026 Samuca Carnes — Todos os direitos reservados</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5562981363653" target="_blank" class="wa-float" title="Fale no WhatsApp">
+  📱
+</a>
+
+</body>
+</html>
