@@ -848,21 +848,18 @@
     { id:37, cat:'suinos',  name:'Costela P.A.',         desc:'Costela suína de primeira, ideal para defumados, churrascos especiais e receitas de longa cocção.',          price:null,  unit:'/ kg',   img:'images/costela-p.a.jpeg' },
     { id:38, cat:'suinos',  name:'Toicinho Suíno',       desc:'Gordura suína de qualidade, ideal para fritura, tempero e receitas da culinária tradicional brasileira.',    price:null,  unit:'/ kg',   img:'images/toicinho-suino.jpeg' },
     { id:39, cat:'suinos',  name:'Barriga Suína',        desc:'Corte suculento com camadas de carne e gordura. Perfeito para porchetta, assados e receitas especiais.',     price:null,  unit:'/ kg',   img:'images/barriga-suina.jpeg' },
-    // HORTIFRUTI
-    { id:18, cat:'horti',   name:'Verduras Frescas',     desc:'Alface, rúcula, agrião, couve e muito mais. Colhidas fresquinhas para sua mesa.',                            price:null,  unit:null,     img:'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=260&fit=crop&auto=format&q=80' },
-    { id:19, cat:'horti',   name:'Frutas da Estação',    desc:'Seleção diária das melhores frutas, frescas e saborosas. Qualidade garantida.',                              price:null,  unit:null,     img:'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=260&fit=crop&auto=format&q=80' },
     // BEBIDAS & OUTROS
     { id:20, cat:'bebidas', name:'Refrigerante 2L',      desc:'Variedade de refrigerantes gelados para acompanhar seu churrasco.',                                          price:8.90,  unit:'/ un',   img:'https://images.pexels.com/photos/1904262/pexels-photo-1904262.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
     { id:21, cat:'bebidas', name:'Bebidas em Geral',     desc:'Cervejas, sucos, águas e mais. Tudo para completar sua festa.',                                              price:null,  unit:null,     img:'https://images.pexels.com/photos/18925023/pexels-photo-18925023.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
     { id:22, cat:'outros',  name:'Banha de Porco',       desc:'Produto artesanal de qualidade, ideal para temperos e receitas tradicionais.',                               price:12.90, unit:'/ 500g', img:'https://images.pexels.com/photos/14469379/pexels-photo-14469379.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
     { id:23, cat:'outros',  name:'Temperos Prontos',     desc:'Blend de temperos selecionados para realçar o sabor das suas carnes.',                                      price:7.90,  unit:'/ un',   img:'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=260&fit=crop&auto=format&q=80' },
-    { id:24, cat:'outros',  name:'Carvão 5kg',           desc:'Carvão de qualidade para um churrasco com calor constante e pouca fumaça.',                                 price:19.90, unit:'/ saco', img:'https://images.pexels.com/photos/14887417/pexels-photo-14887417.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
+    { id:24, cat:'outros',  name:'Carvão 2,5kg',         desc:'Carvão de qualidade para um churrasco com calor constante e pouca fumaça.',                                 price:19.90, unit:'/ saco', img:'https://images.pexels.com/photos/14887417/pexels-photo-14887417.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
   ];
 
   const CATEGORIES = {
     carnes:  'Cortes Bovinos',
     suinos:  'Cortes Suínos',
-    horti:   'Hortifruti',
+
     bebidas: 'Bebidas',
     outros:  'Outros Produtos',
   };
@@ -923,7 +920,7 @@
   function renderCartItems() {
     const container = document.getElementById('cartItemsContainer');
     container.innerHTML = '';
-    const catOrder = ['carnes','suinos','horti','bebidas','outros'];
+    const catOrder = ['carnes','suinos','bebidas','outros'];
     catOrder.forEach(cat => {
       const items = PRODUCTS.filter(p => p.cat === cat);
       const header = document.createElement('div');
