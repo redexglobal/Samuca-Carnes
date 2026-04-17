@@ -814,24 +814,40 @@
 <script>
   /* ── PRODUCTS DATA ── */
   const PRODUCTS = [
-    // CORTES NOBRES
+    // CORTES BOVINOS
     { id:1,  cat:'carnes',  name:'Picanha',              desc:'O corte mais nobre do churrasco. Marmoreio perfeito, suculência incomparável e sabor único.',                  price:79.90, unit:'/ kg',   img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/GrilledPicanha.jpg/400px-GrilledPicanha.jpg' },
-    { id:2,  cat:'carnes',  name:'Filé Mignon',          desc:'O corte mais macio da carne bovina. Textura aveludada, ideal para medalhões e pratos refinados.',             price:74.90, unit:'/ kg',   img:'https://images.pexels.com/photos/1314041/pexels-photo-1314041.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
+    { id:2,  cat:'carnes',  name:'Filé Mignon',          desc:'O corte mais macio da carne bovina. Textura aveludada, ideal para medalhões e pratos refinados.',             price:74.90, unit:'/ kg',   img:'images/file-mignon.jpeg' },
     { id:3,  cat:'carnes',  name:'Cupim Grill',          desc:'Especialidade do boi zebu brasileiro. Cheio de gordura entremeada, perfeito para assado lento na grelha.',    price:59.90, unit:'/ kg',   img:'https://images.pexels.com/photos/8934875/pexels-photo-8934875.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
     { id:4,  cat:'carnes',  name:'Contrafilé',           desc:'Corte macio e suculento com capa de gordura que protege e saboriza. Ideal para grelha e churrasco.',          price:51.90, unit:'/ kg',   img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:5,  cat:'carnes',  name:'Alcatra',              desc:'Corte nobre, macio e versátil. Excelente para churrasco, bifes e assados do dia a dia.',                      price:51.90, unit:'/ kg',   img:'https://images.pexels.com/photos/618773/pexels-photo-618773.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
+    { id:5,  cat:'carnes',  name:'Alcatra',              desc:'Corte nobre, macio e versátil. Excelente para churrasco, bifes e assados do dia a dia.',                      price:51.90, unit:'/ kg',   img:'images/alcatra.jpeg' },
     { id:6,  cat:'carnes',  name:'Maminha da Alcatra',   desc:'Carne magra, macia e saborosa. Perfeita para churrasco e assados, com baixo teor de gordura.',                price:51.90, unit:'/ kg',   img:'https://images.pexels.com/photos/5045090/pexels-photo-5045090.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:7,  cat:'carnes',  name:'Coxão Mole',           desc:'Carne macia e com fibras curtas, ótima para bifes, assados, cozidos e ensopados.',                            price:47.90, unit:'/ kg',   img:'https://images.pexels.com/photos/11677646/pexels-photo-11677646.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:8,  cat:'carnes',  name:'Coxão Duro',           desc:'Ideal para assados de panela, cozidos e carne moída. Sabor intenso e textura marcante.',                     price:47.90, unit:'/ kg',   img:'https://images.pexels.com/photos/8477071/pexels-photo-8477071.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:9,  cat:'carnes',  name:'Patinho',              desc:'Carne magra e versátil. Ótima para bifes, escalopes, carne moída e preparos rápidos.',                       price:47.90, unit:'/ kg',   img:'https://images.pexels.com/photos/7613432/pexels-photo-7613432.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:10, cat:'carnes',  name:'Fraldinha',            desc:'Corte saboroso com fibras longas e gordura entremeada. Perfeita para churrasco e carne de panela.',           price:47.90, unit:'/ kg',   img:'https://images.pexels.com/photos/8694617/pexels-photo-8694617.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:11, cat:'carnes',  name:'Peixinho',             desc:'Corte macio e saboroso, retirado da paleta. Ideal para assados, cozidos e churrasco.',                       price:41.90, unit:'/ kg',   img:'https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:12, cat:'carnes',  name:'Capa do Contrafilé',   desc:'Rica em gordura entremeada, proporciona sabor intenso. Muito apreciada no churrasco gaúcho.',                price:41.90, unit:'/ kg',   img:'https://images.pexels.com/photos/4765772/pexels-photo-4765772.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
+    { id:7,  cat:'carnes',  name:'Coxão Mole',           desc:'Carne macia e com fibras curtas, ótima para bifes, assados, cozidos e ensopados.',                            price:47.90, unit:'/ kg',   img:'images/coxao-mole.jpeg' },
+    { id:8,  cat:'carnes',  name:'Coxão Duro',           desc:'Ideal para assados de panela, cozidos e carne moída. Sabor intenso e textura marcante.',                     price:47.90, unit:'/ kg',   img:'images/coxao-duro.jpeg' },
+    { id:9,  cat:'carnes',  name:'Patinho',              desc:'Carne magra e versátil. Ótima para bifes, escalopes, carne moída e preparos rápidos.',                       price:47.90, unit:'/ kg',   img:'images/patinho.jpeg' },
+    { id:10, cat:'carnes',  name:'Fraldinha',            desc:'Corte saboroso com fibras longas e gordura entremeada. Perfeita para churrasco e carne de panela.',           price:47.90, unit:'/ kg',   img:'images/fraldinha.jpeg' },
+    { id:11, cat:'carnes',  name:'Peixinho',             desc:'Corte macio e saboroso, retirado da paleta. Ideal para assados, cozidos e churrasco.',                       price:41.90, unit:'/ kg',   img:'images/peixinho-bovino.jpeg' },
+    { id:12, cat:'carnes',  name:'Capa do Contrafilé',   desc:'Rica em gordura entremeada, proporciona sabor intenso. Muito apreciada no churrasco gaúcho.',                price:41.90, unit:'/ kg',   img:'images/capa-do-contra-file.jpeg' },
     { id:13, cat:'carnes',  name:'Paloma',               desc:'Corte da paleta, macio e com ótimo sabor. Versátil para churrasco, cozidos e assados de panela.',            price:37.90, unit:'/ kg',   img:'https://images.pexels.com/photos/1903936/pexels-photo-1903936.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:14, cat:'carnes',  name:'Paleta',               desc:'Carne saborosa e econômica, ideal para cozidos, guisados e assados de longa duração.',                       price:37.90, unit:'/ kg',   img:'https://images.pexels.com/photos/299347/pexels-photo-299347.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:15, cat:'carnes',  name:'Lombão',               desc:'Corte do lombo com excelente sabor. Ótimo para assados, bifes e preparações especiais.',                     price:37.90, unit:'/ kg',   img:'https://images.pexels.com/photos/1327393/pexels-photo-1327393.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:16, cat:'carnes',  name:'Acém',                 desc:'Carne com sabor marcante, perfeita para cozidos, ensopados, carne moída e hambúrgueres artesanais.',         price:35.90, unit:'/ kg',   img:'https://images.pexels.com/photos/299348/pexels-photo-299348.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:17, cat:'carnes',  name:'Músculo',              desc:'Carne firme e saborosa, ideal para caldos, sopas, cozidos e o famoso ossobuco.',                             price:33.90, unit:'/ kg',   img:'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=260&fit=crop&auto=format&q=80' },
+    { id:14, cat:'carnes',  name:'Paleta',               desc:'Carne saborosa e econômica, ideal para cozidos, guisados e assados de longa duração.',                       price:37.90, unit:'/ kg',   img:'images/paleta-bovina.jpeg' },
+    { id:15, cat:'carnes',  name:'Lombão',               desc:'Corte do lombo com excelente sabor. Ótimo para assados, bifes e preparações especiais.',                     price:37.90, unit:'/ kg',   img:'images/lombao-bovino.jpeg' },
+    { id:16, cat:'carnes',  name:'Acém',                 desc:'Carne com sabor marcante, perfeita para cozidos, ensopados, carne moída e hambúrgueres artesanais.',         price:35.90, unit:'/ kg',   img:'images/acem-bovino.jpeg' },
+    { id:17, cat:'carnes',  name:'Músculo',              desc:'Carne firme e saborosa, ideal para caldos, sopas, cozidos e o famoso ossobuco.',                             price:33.90, unit:'/ kg',   img:'images/musculo.jpeg' },
+    { id:25, cat:'carnes',  name:'Chambari',             desc:'Corte do osso da perna bovina, muito saboroso. Perfeito para caldos encorpados, sopas e cozidos.',           price:null,  unit:'/ kg',   img:'images/chambari.jpeg' },
+    { id:26, cat:'carnes',  name:'Acém com Osso',        desc:'Versão com osso do tradicional acém, com sabor ainda mais intenso. Ideal para assados e cozidos.',          price:null,  unit:'/ kg',   img:'images/acem-com-osso.jpeg' },
+    { id:27, cat:'carnes',  name:'Rabada',               desc:'Corte típico da culinária brasileira. Carne suculenta e saborosa, perfeita para ensopados e cozidos.',       price:null,  unit:'/ kg',   img:'images/rabada.jpeg' },
+    { id:28, cat:'carnes',  name:'Peito Bovino',         desc:'Corte saboroso e fibroso, excelente para defumados, cozidos e o famoso brisket.',                            price:null,  unit:'/ kg',   img:'images/peito-bovino.jpeg' },
+    { id:29, cat:'carnes',  name:'Costela Ripa',         desc:'Costela bovina com osso, ideal para churrascos longos e assados na brasa. Sabor inigualável.',               price:null,  unit:'/ kg',   img:'images/costela-ripa.jpeg' },
+    { id:30, cat:'carnes',  name:'Costa Gaúcha',         desc:'Corte tradicional do churrasco gaúcho, rico em sabor. Ideal para grelha e espeto corrido.',                  price:null,  unit:'/ kg',   img:'images/costa-gaucha.jpeg' },
+    // CORTES SUÍNOS
+    { id:31, cat:'suinos',  name:'Bisteca Paulista',     desc:'Corte clássico do suíno, suculento e saboroso. Perfeito para fritar na chapa ou assar na grelha.',           price:null,  unit:'/ kg',   img:'images/bisteca-paulista.jpeg' },
+    { id:32, cat:'suinos',  name:'Pernil Suíno sem Osso',desc:'Carne suína macia e saborosa, ideal para assados, receitas especiais e churrascos marcantes.',               price:null,  unit:'/ kg',   img:'images/pernil-suino-sem-osso.jpeg' },
+    { id:33, cat:'suinos',  name:'Pernil com Osso',      desc:'Pernil suíno com osso para assados suculentos, festas e receitas especiais.',                                price:null,  unit:'/ kg',   img:'images/pernil-com-osso.jpeg' },
+    { id:34, cat:'suinos',  name:'Lombo Suíno',          desc:'Corte nobre do suíno, macio e versátil. Ótimo para assados, bifes e receitas especiais.',                   price:null,  unit:'/ kg',   img:'images/lombo-suino.jpeg' },
+    { id:35, cat:'suinos',  name:'Costelinha Suína',     desc:'Costelinha suína suculenta e saborosa. Perfeita para churrasco, receitas com molho e defumados.',            price:null,  unit:'/ kg',   img:'images/costelinha-suina.jpeg' },
+    { id:36, cat:'suinos',  name:'Panceta Suína',        desc:'Barriga curada do suíno com gordura entremeada e sabor rico. Usada em diversas receitas tradicionais.',      price:null,  unit:'/ kg',   img:'images/panceta-suina.jpeg' },
+    { id:37, cat:'suinos',  name:'Costela P.A.',         desc:'Costela suína de primeira, ideal para defumados, churrascos especiais e receitas de longa cocção.',          price:null,  unit:'/ kg',   img:'images/costela-p.a.jpeg' },
+    { id:38, cat:'suinos',  name:'Toicinho Suíno',       desc:'Gordura suína de qualidade, ideal para fritura, tempero e receitas da culinária tradicional brasileira.',    price:null,  unit:'/ kg',   img:'images/toicinho-suino.jpeg' },
+    { id:39, cat:'suinos',  name:'Barriga Suína',        desc:'Corte suculento com camadas de carne e gordura. Perfeito para porchetta, assados e receitas especiais.',     price:null,  unit:'/ kg',   img:'images/barriga-suina.jpeg' },
     // HORTIFRUTI
     { id:18, cat:'horti',   name:'Verduras Frescas',     desc:'Alface, rúcula, agrião, couve e muito mais. Colhidas fresquinhas para sua mesa.',                            price:null,  unit:null,     img:'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=260&fit=crop&auto=format&q=80' },
     { id:19, cat:'horti',   name:'Frutas da Estação',    desc:'Seleção diária das melhores frutas, frescas e saborosas. Qualidade garantida.',                              price:null,  unit:null,     img:'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=260&fit=crop&auto=format&q=80' },
@@ -844,7 +860,8 @@
   ];
 
   const CATEGORIES = {
-    carnes:  'Cortes Nobres',
+    carnes:  'Cortes Bovinos',
+    suinos:  'Cortes Suínos',
     horti:   'Hortifruti',
     bebidas: 'Bebidas',
     outros:  'Outros Produtos',
@@ -906,7 +923,7 @@
   function renderCartItems() {
     const container = document.getElementById('cartItemsContainer');
     container.innerHTML = '';
-    const catOrder = ['carnes','horti','bebidas','outros'];
+    const catOrder = ['carnes','suinos','horti','bebidas','outros'];
     catOrder.forEach(cat => {
       const items = PRODUCTS.filter(p => p.cat === cat);
       const header = document.createElement('div');
