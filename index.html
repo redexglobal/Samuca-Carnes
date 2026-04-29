@@ -8,9 +8,9 @@
   <style>
     /* ── TOKENS ── */
     [data-theme="dark"] {
-      --orange:        #FF5500;
-      --orange-dark:   #CC3300;
-      --orange-light:  #FF7733;
+      --orange:        #F25E00;
+      --orange-dark:   #BF4A00;
+      --orange-light:  #FF7A20;
       --gold:          #C9A227;
       --gold-light:    #F0C84A;
       --bg:            #1C0800;
@@ -102,9 +102,9 @@
       font-size: .83rem; font-weight: 600; letter-spacing: .5px;
       display: flex; align-items: center; gap: .5rem;
       transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 2px 12px rgba(255,85,0,.5);
+      box-shadow: 0 2px 12px rgba(242,94,0,.55);
     }
-    .btn-cart:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,85,0,.7); }
+    .btn-cart:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(242,94,0,.75); }
     .cart-badge {
       position: absolute; top: -6px; right: -6px;
       background: var(--gold); color: #1a0800;
@@ -129,10 +129,10 @@
     [data-theme="dark"]  .hero-fachada { opacity: .10; }
     [data-theme="light"] .hero-fachada { opacity: .13; }
     [data-theme="dark"] #hero {
-      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,85,0,.3) 0%, transparent 70%), var(--bg);
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(242,94,0,.35) 0%, transparent 70%), var(--bg);
     }
     [data-theme="light"] #hero {
-      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,85,0,.1) 0%, transparent 70%), var(--bg);
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(242,94,0,.12) 0%, transparent 70%), var(--bg);
     }
 
     /* ── MASCOTE ── */
@@ -152,7 +152,7 @@
     .mascote-img {
       width: 72px; height: 72px; object-fit: cover; object-position: top;
       border-radius: 50%; border: 2px solid var(--gold);
-      box-shadow: 0 4px 20px rgba(255,85,0,.5);
+      box-shadow: 0 4px 20px rgba(242,94,0,.55);
       transition: transform .2s;
       background: #fff;
     }
@@ -165,7 +165,7 @@
     .hero-logo-wrap {
       width: 180px; height: 180px; margin: 0 auto 2rem;
       border-radius: 50%; border: 3px solid var(--gold);
-      box-shadow: 0 0 40px rgba(201,162,39,.3), 0 0 80px rgba(255,85,0,.3);
+      box-shadow: 0 0 40px rgba(201,162,39,.3), 0 0 80px rgba(242,94,0,.35);
       overflow: hidden; background: #fff;
     }
     .hero-logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
@@ -194,7 +194,7 @@
       background: linear-gradient(135deg, var(--orange), var(--orange-dark));
       color: #fff; font-weight: 600; font-size: .9rem;
       padding: .85rem 2rem; border-radius: 50px; text-decoration: none;
-      box-shadow: 0 4px 24px rgba(255,85,0,.55);
+      box-shadow: 0 4px 24px rgba(242,94,0,.6);
       transition: transform .2s, box-shadow .2s;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,80,10,.65); }
@@ -547,6 +547,33 @@
       .nav-links { display: none; }
       .cart-drawer { width: 100vw; }
     }
+
+    /* ── TICKER DE PRECOS ── */
+    .ticker-wrap {
+      width: 100%; overflow: hidden;
+      background: var(--orange);
+      padding: .45rem 0;
+      position: sticky; top: 64px; z-index: 199;
+      border-bottom: 2px solid var(--orange-dark);
+    }
+    .ticker-track {
+      display: flex; gap: 0;
+      white-space: nowrap;
+      animation: ticker-scroll 18s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .82rem; font-weight: 700; color: #fff;
+      padding: 0 2rem; letter-spacing: .3px;
+    }
+    .ticker-item .ticker-sep {
+      color: rgba(255,255,255,.45); margin-left: 2rem;
+    }
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
   </style>
 </head>
 <body>
@@ -579,6 +606,12 @@
     </button>
   </div>
 </nav>
+
+
+<!-- ══════════════ TICKER DE PRECOS ══════════════ -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
 
 <!-- ══════════════ HERO ══════════════ -->
 <section id="hero">
@@ -1061,6 +1094,19 @@
 
     window.open(`https://wa.me/5562981363653?text=${encodeURIComponent(msg)}`, '_blank');
   });
+
+
+  /* ── TICKER ── */
+  function buildTicker() {
+    const track = document.getElementById('tickerTrack');
+    const priced = PRODUCTS.filter(p => p.price);
+    // duplica para loop sem lacuna
+    const items = [...priced, ...priced];
+    track.innerHTML = items.map(p =>
+      `<span class="ticker-item">${p.name} <strong>R$ ${p.price.toFixed(2).replace('.',',')}</strong>${p.unit ? ' '+p.unit : ''}<span class="ticker-sep">|</span></span>`
+    ).join('');
+  }
+  buildTicker();
 
   /* ── INIT ── */
   renderGrid();
