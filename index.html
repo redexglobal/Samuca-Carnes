@@ -235,7 +235,7 @@
     .products-header .section-desc { max-width: 540px; margin: 0 auto; }
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.5rem;
     }
     .product-card {
@@ -248,20 +248,20 @@
     }
     .product-card:hover { transform: translateY(-6px); border-color: var(--border-hover); }
     .product-img {
-      width: 100%; height: 190px; object-fit: cover;
+      width: 100%; height: 200px; object-fit: cover;
       display: block; background: var(--bg4);
     }
-    .product-body { padding: 1.2rem 1.3rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .product-body { padding: 1.4rem 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
     .product-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .3rem;
+      font-size: 1.7rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; line-height: 1.2;
     }
     .product-desc { font-size: .8rem; color: var(--muted); line-height: 1.55; flex: 1; }
     .product-footer {
       display: flex; align-items: center; justify-content: space-between;
       margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--border);
     }
-    .product-price { font-size: 1.4rem; font-weight: 700; color: var(--gold-light); }
+    .product-price { font-size: 2.2rem; font-weight: 900; color: var(--gold-light); letter-spacing: .5px; }
     .product-price.consulte { color: var(--orange-light); font-style: italic; font-size: .82rem; }
     .btn-add {
       background: var(--orange); border: none; color: #fff;
@@ -564,9 +564,9 @@
       gap: 1.8rem; padding: 0 2rem;
       animation: price-up 2s cubic-bezier(.25,.46,.45,.94) forwards;
     }
-    .t-name  { font-size: .92rem;  font-weight: 600; color: rgba(255,255,255,.9); letter-spacing: .3px; }
+    .t-name  { font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,.9); letter-spacing: .3px; }
     .t-sep   { color: rgba(255,255,255,.3); font-size: 1.1rem; }
-    .t-price { font-size: 1.4rem; font-weight: 900; color: #fff; letter-spacing: .5px; }
+    .t-price { font-size: 1.7rem; font-weight: 900; color: #fff; letter-spacing: .5px; }
     .t-unit  { font-size: .74rem; color: rgba(255,255,255,.65); font-weight: 500; }
     @keyframes price-up {
       0%   { transform: translateY(110%); opacity: 0; }
@@ -923,80 +923,73 @@
 
   /* ── PRODUCTS DATA ── */
   const PRODUCTS = [
-    // -- CORTES BOVINOS NOBRES --
-    { id:1,  cat:'carnes',     name:'Picanha',                   desc:'O corte mais nobre do churrasco. Marmoreio perfeito e suculência incomparável.',       price:79.90, unit:'/ kg',  img:'images/picanha.jpeg' },
-    { id:2,  cat:'carnes',     name:'Filé Mignon',               desc:'O mais macio da carne bovina. Textura aveludada, ideal para medalões.',               price:74.90, unit:'/ kg',  img:'images/file-mignon.jpeg' },
-    { id:3,  cat:'carnes',     name:'Cupim Grill',               desc:'Especialidade do zebu brasileiro, cheio de gordura entremeada na grelha.',             price:59.90, unit:'/ kg',  img:'https://images.pexels.com/photos/8934875/pexels-photo-8934875.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:4,  cat:'carnes',     name:'Contra Filé',               desc:'Macio e suculento com capa de gordura. Ideal para grelha e churrasco.',                price:51.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:5,  cat:'carnes',     name:'Alcatra',                   desc:'Corte nobre, macio e versátil. Excelente para churrasco e bifes.',                     price:51.90, unit:'/ kg',  img:'images/alcatra.jpeg' },
-    { id:6,  cat:'carnes',     name:'Maminha da Alcatra',        desc:'Carne magra, macia e saborosa. Perfeita para churrasco.',                              price:51.90, unit:'/ kg',  img:'https://images.pexels.com/photos/5045090/pexels-photo-5045090.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:7,  cat:'carnes',     name:'Coxão Mole',                desc:'Macio com fibras curtas, ótimo para bifes, assados e cozidos.',                       price:47.90, unit:'/ kg',  img:'images/coxao-mole.jpeg' },
-    { id:8,  cat:'carnes',     name:'Coxão Duro',                desc:'Ideal para assados de panela, cozidos e carne moída.',                                 price:47.90, unit:'/ kg',  img:'images/coxao-duro.jpeg' },
-    { id:9,  cat:'carnes',     name:'Patinho',                   desc:'Carne magra e versátil. Ótima para bifes, escalopes e carne moída.',                   price:47.90, unit:'/ kg',  img:'images/patinho.jpeg' },
-    { id:10, cat:'carnes',     name:'Fraldinha',                 desc:'Saborosa com gordura entremeada. Perfeita para churrasco.',                          price:47.90, unit:'/ kg',  img:'images/fraldinha.jpeg' },
-    { id:11, cat:'carnes',     name:'Peixinho',                  desc:'Corte macio e saboroso da paleta. Ideal para assados e churrasco.',                    price:41.90, unit:'/ kg',  img:'images/peixinho-bovino.jpeg' },
-    { id:12, cat:'carnes',     name:'Capa de Contra Filé',       desc:'Rica em gordura entremeada, sabor intenso. Muito apreciada no churrasco.',             price:41.90, unit:'/ kg',  img:'images/capa-do-contra-file.jpeg' },
-    { id:13, cat:'carnes',     name:'Paloma',                    desc:'Corte da paleta, macio e versátil para churrasco e cozidos.',                          price:37.90, unit:'/ kg',  img:'https://images.pexels.com/photos/1903936/pexels-photo-1903936.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:14, cat:'carnes',     name:'Paleta',                    desc:'Saborosa e econômica. Ideal para cozidos e assados de longa duração.',                 price:37.90, unit:'/ kg',  img:'images/paleta-bovina.jpeg' },
-    { id:15, cat:'carnes',     name:'Lombão',                    desc:'Corte do lombo com excelente sabor. Ótimo para assados e bifes.',                      price:37.90, unit:'/ kg',  img:'images/lombao-bovino.jpeg' },
-    { id:16, cat:'carnes',     name:'Acém',                      desc:'Sabor marcante para cozidos, ensopados e hambúrgueres artesanais.',                    price:35.90, unit:'/ kg',  img:'images/acem-bovino.jpeg' },
-    { id:17, cat:'carnes',     name:'Músculo',                   desc:'Firme e saboroso. Ideal para caldos, sopas e ossobuco.',                               price:33.90, unit:'/ kg',  img:'images/musculo.jpeg' },
-    // -- CORTES ESPECIAIS --
-    { id:18, cat:'especiais',  name:'Costela PÁ',                desc:'Costela suculenta e saborosa, perfeita para churrascos longos na brasa.',              price:25.90, unit:'/ kg',  img:'images/costela-p.a.jpeg' },
-    { id:19, cat:'especiais',  name:'Costela Dianteira',         desc:'Costela bovina com sabor intenso e marcante na grelha.',                              price:25.90, unit:'/ kg',  img:'images/costela-ripa.jpeg' },
-    { id:20, cat:'especiais',  name:'Costela Gaúcha',            desc:'Tradicional do churrasco gaúcho, rica em sabor na grelha.',                           price:27.90, unit:'/ kg',  img:'images/costa-gaucha.jpeg' },
-    { id:21, cat:'especiais',  name:'Rabada',                    desc:'Típica culinária brasileira. Suculenta para ensopados e cozidos.',                    price:35.90, unit:'/ kg',  img:'images/rabada.jpeg' },
-    { id:22, cat:'especiais',  name:'Chambari',                  desc:'Corte do osso da perna bovina. Perfeito para caldos encorpados.',                     price:28.90, unit:'/ kg',  img:'images/chambari.jpeg' },
-    { id:23, cat:'especiais',  name:'Bisteca Paulista',          desc:'Clássico suculento e saboroso. Perfeito para fritar na chapa ou grelha.',             price:27.90, unit:'/ kg',  img:'images/bisteca-paulista.jpeg' },
-    { id:24, cat:'especiais',  name:'Acém com Osso',             desc:'Sabor ainda mais intenso para assados e cozidos especiais.',                          price:22.90, unit:'/ kg',  img:'images/acem-com-osso.jpeg' },
-    // -- MIUDOS BOVINOS --
-    { id:25, cat:'miudos',    name:'Coração Bovino',             desc:'Rico em proteínas. Ótimo grelhado, ensopado ou temperado.',                           price:14.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:26, cat:'miudos',    name:'Língua Bovina',              desc:'Carne macia e saborosa, versátil na cozinha brasileira.',                             price:15.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:27, cat:'miudos',    name:'Tripa',                      desc:'Ideal para churrasco, dobradinha e cozidos tradicionais.',                            price:21.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:28, cat:'miudos',    name:'Fígado Bovino',              desc:'Rico em ferro e vitaminas. Grelhado ou frito com cebola.',                            price:21.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    // -- AVES --
-    { id:29, cat:'frango',    name:'Frango Resfriado',           desc:'Frango inteiro fresco e de qualidade. Ideal para assar ou cozinhar.',                 price:11.90, unit:'/ kg',  img:'images/frango-resfriado.jpeg' },
-    { id:30, cat:'frango',    name:'Coxa Sobrecoxa',             desc:'Suculenta e saborosa. Ótima para churrasco, forno e frituras.',                      price:14.90, unit:'/ kg',  img:'images/coxa-sobrecoxa.jpeg' },
-    { id:31, cat:'frango',    name:'Coxinha da Asa',             desc:'Crocante e deliciosa, perfeita para churrasco e forno.',                             price:22.90, unit:'/ kg',  img:'images/asa-de-frango.jpeg' },
-    { id:32, cat:'frango',    name:'Meio Asa Tradicional',       desc:'Tradicional e saborosa, ótima para churrasco e receitas.',                           price:28.90, unit:'/ kg',  img:'images/asa-de-frango.jpeg' },
-    { id:33, cat:'frango',    name:'Asa',                        desc:'Crocante e saborosa. Perfeita para churrasco e frituras.',                           price:19.90, unit:'/ kg',  img:'images/asa-de-frango.jpeg' },
-    { id:34, cat:'frango',    name:'Coração de Frango',          desc:'Pacote 500g. Clássico do churrasco brasileiro.',                                     price:19.90, unit:'/ pct', img:'https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:35, cat:'frango',    name:'Fígado de Frango',           desc:'Macio e nutritivo, rico em ferro e vitaminas.',                                      price:11.50, unit:'/ kg',  img:'https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:36, cat:'frango',    name:'Pé de Frango',               desc:'Ótimo para caldos, sopas e culinária tradicional.',                                  price:11.50, unit:'/ kg',  img:'https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    // -- SUINOS --
-    { id:37, cat:'suinos',    name:'Pernil Sem Osso',            desc:'Macio e saboroso. Ideal para assados e receitas especiais.',                         price:24.90, unit:'/ kg',  img:'images/pernil-suino-sem-osso.jpeg' },
-    { id:38, cat:'suinos',    name:'Lombo Suíno',                desc:'Corte nobre e versátil. Ótimo para assados e bifes.',                                price:28.90, unit:'/ kg',  img:'images/lombo-suino.jpeg' },
-    { id:39, cat:'suinos',    name:'Costelinha Suína',           desc:'Suculenta para churrasco, receitas com molho e defumados.',                          price:32.90, unit:'/ kg',  img:'images/costelinha-suina.jpeg' },
-    { id:40, cat:'suinos',    name:'Carré',                      desc:'Corte nobre suíno, macio e suculento para assados.',                                 price:28.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:41, cat:'suinos',    name:'Suam',                       desc:'Corte versátil para ensopados e cozidos tradicionais.',                              price:14.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:42, cat:'suinos',    name:'Panceta Suína',             desc:'Gordura entremeada e sabor rico para receitas tradicionais.',                        price:26.90, unit:'/ kg',  img:'images/panceta-suina.jpeg' },
-    { id:43, cat:'suinos',    name:'Barriga Suína',             desc:'Perfeita para porchetta, assados e receitas especiais.',                             price:22.90, unit:'/ kg',  img:'images/barriga-suina.jpeg' },
-    { id:44, cat:'suinos',    name:'Papada Suína',               desc:'Sabor intenso para embutidos e receitas tradicionais.',                             price:22.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:45, cat:'suinos',    name:'Toicinho',                   desc:'Para fritura, tempero e culinária tradicional brasileira.',                          price:19.90, unit:'/ kg',  img:'images/toicinho-suino.jpeg' },
-    { id:46, cat:'suinos',    name:'Kit Feijoada',               desc:'Tudo para a melhor feijoada da região, pronto para cozinhar.',                      price:19.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    // -- TEMPERADOS --
-    { id:47, cat:'temperados',name:'Coxão Duro Serenando',       desc:'Marinado com tempero especial da casa, pronto para assar.',                         price:49.90, unit:'/ kg',  img:'images/coxao-duro.jpeg' },
-    { id:48, cat:'temperados',name:'Cupim Temperado',            desc:'Cupim com tempero artesanal, sabor inigualável na grelha.',                         price:49.90, unit:'/ kg',  img:'https://images.pexels.com/photos/8934875/pexels-photo-8934875.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:49, cat:'temperados',name:'Kit Churrasco',              desc:'Kit completo para um churrasco perfeito e inesquecível.',                           price:39.90, unit:'/ kg',  img:'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:50, cat:'temperados',name:'Costela Temperada',          desc:'Costela com tempero exclusivo da Samuca, churrasco garantido.',                     price:29.90, unit:'/ kg',  img:'images/costela-p.a.jpeg' },
-    { id:51, cat:'temperados',name:'Frango Temperado',           desc:'Frango com tempero caseiro, pronto para assar ou grelhar.',                        price:18.90, unit:'/ kg',  img:'images/frango-resfriado.jpeg' },
-    { id:52, cat:'temperados',name:'Coxinha Temperada',          desc:'Coxinha de frango com tempero especial da casa.',                                   price:25.90, unit:'/ kg',  img:'images/asa-de-frango.jpeg' },
-    { id:53, cat:'temperados',name:'Meio da Asa Temperada',      desc:'Asa temperada artesanalmente, perfeita para grelhar.',                             price:34.90, unit:'/ kg',  img:'images/asa-de-frango.jpeg' },
-    { id:54, cat:'temperados',name:'Panceta Suína Temperada',    desc:'Panceta com tempero da casa, sabor especial na brasa.',                            price:29.90, unit:'/ kg',  img:'images/panceta-suina.jpeg' },
-    { id:55, cat:'temperados',name:'Costelinha Suína Temperada', desc:'Costelinha temperada para um churrasco irresistível.',                             price:32.90, unit:'/ kg',  img:'images/costelinha-suina.jpeg' },
-    // -- LINGUICAS & OUTROS --
-    { id:56, cat:'linguicas', name:'Linguiça Calabresa',         desc:'Sabor marcante e defumado. Ótima para churrasco e cozidos.',                       price:29.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:57, cat:'linguicas', name:'Linguiça Caseira',           desc:'Receita artesanal da casa. Sabor irresistível na brasa.',                          price:28.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:58, cat:'linguicas', name:'Linguiça Boa',               desc:'Saborosa e suculenta para o seu churrasco.',                                       price:26.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:59, cat:'linguicas', name:'Linguiça Perdigão',          desc:'Qualidade Perdigão para o seu churrasco.',                                         price:26.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:60, cat:'linguicas', name:'Linguiça Sadia',             desc:'Tradicional Sadia, sabor que agrada a todos.',                                     price:26.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:61, cat:'linguicas', name:'Linguiça Seara',             desc:'Qualidade Seara para o seu dia a dia.',                                            price:26.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:62, cat:'linguicas', name:'Linguiça Fina de Frango',    desc:'Frango processado com tempero leve e sabor suave.',                                price:26.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:63, cat:'linguicas', name:'Linguiça Fina Suína',        desc:'Fina e saborosa, ideal para frituras e receitas.',                                 price:26.90, unit:'/ kg',  img:'https://images.pexels.com/photos/3806951/pexels-photo-3806951.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:64, cat:'linguicas', name:'Quibe',                      desc:'Quibe artesanal, pronto para fritar ou assar.',                                    price:29.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:65, cat:'linguicas', name:'Disco de Carne',             desc:'Prático para hambúrgueres e preparos rápidos.',                                    price:29.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:66, cat:'linguicas', name:'Almôndega de Carne',         desc:'Almôndegas artesanais de carne bovina temperadas.',                                price:29.90, unit:'/ kg',  img:'https://images.pexels.com/photos/618775/pexels-photo-618775.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
-    { id:67, cat:'linguicas', name:'Almôndega de Frango',        desc:'Almôndegas de frango, leves e saborosas.',                                         price:29.90, unit:'/ kg',  img:'https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=400&h=260&fit=crop' },
+    { id: 1, cat:'carnes', name:'Picanha', price:79.9, unit:'/ kg', img:'images/picanha.jpeg' },
+    { id: 2, cat:'carnes', name:'Filé Mignon', price:74.9, unit:'/ kg', img:'images/file-mignon.jpeg' },
+    { id: 3, cat:'carnes', name:'Cupim Grill', price:59.9, unit:'/ kg', img:'images/capa-do-contra-file.jpeg' },
+    { id: 4, cat:'carnes', name:'Contra Filé', price:51.9, unit:'/ kg', img:'images/coxao-mole.jpeg' },
+    { id: 5, cat:'carnes', name:'Alcatra', price:51.9, unit:'/ kg', img:'images/alcatra.jpeg' },
+    { id: 6, cat:'carnes', name:'Maminha da Alcatra', price:51.9, unit:'/ kg', img:'images/fraldinha.jpeg' },
+    { id: 7, cat:'carnes', name:'Coxão Mole', price:47.9, unit:'/ kg', img:'images/coxao-mole.jpeg' },
+    { id: 8, cat:'carnes', name:'Coxão Duro', price:47.9, unit:'/ kg', img:'images/coxao-duro.jpeg' },
+    { id: 9, cat:'carnes', name:'Patinho', price:47.9, unit:'/ kg', img:'images/patinho.jpeg' },
+    { id:10, cat:'carnes', name:'Fraldinha', price:47.9, unit:'/ kg', img:'images/fraldinha.jpeg' },
+    { id:11, cat:'carnes', name:'Peixinho', price:41.9, unit:'/ kg', img:'images/peixinho-bovino.jpeg' },
+    { id:12, cat:'carnes', name:'Capa de Contra Filé', price:41.9, unit:'/ kg', img:'images/capa-do-contra-file.jpeg' },
+    { id:13, cat:'carnes', name:'Paloma', price:37.9, unit:'/ kg', img:'images/paleta-bovina.jpeg' },
+    { id:14, cat:'carnes', name:'Paleta', price:37.9, unit:'/ kg', img:'images/paleta-bovina.jpeg' },
+    { id:15, cat:'carnes', name:'Lombão', price:37.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:16, cat:'carnes', name:'Acém', price:35.9, unit:'/ kg', img:'images/acem-bovino.jpeg' },
+    { id:17, cat:'carnes', name:'Músculo', price:33.9, unit:'/ kg', img:'images/musculo.jpeg' },
+    { id:18, cat:'especiais', name:'Costela PÁ', price:25.9, unit:'/ kg', img:'images/costela-p.a.jpeg' },
+    { id:19, cat:'especiais', name:'Costela Dianteira', price:25.9, unit:'/ kg', img:'images/costela-ripa.jpeg' },
+    { id:20, cat:'especiais', name:'Costela Gaúcha', price:27.9, unit:'/ kg', img:'images/costa-gaucha.jpeg' },
+    { id:21, cat:'especiais', name:'Rabada', price:35.9, unit:'/ kg', img:'images/rabada.jpeg' },
+    { id:22, cat:'especiais', name:'Chambari', price:28.9, unit:'/ kg', img:'images/chambari.jpeg' },
+    { id:23, cat:'especiais', name:'Bisteca Paulista', price:27.9, unit:'/ kg', img:'images/bisteca-paulista.jpeg' },
+    { id:24, cat:'especiais', name:'Acém com Osso', price:22.9, unit:'/ kg', img:'images/acem-com-osso.jpeg' },
+    { id:25, cat:'miudos', name:'Coração Bovino', price:14.9, unit:'/ kg', img:'images/musculo.jpeg' },
+    { id:26, cat:'miudos', name:'Língua Bovina', price:15.9, unit:'/ kg', img:'images/musculo.jpeg' },
+    { id:27, cat:'miudos', name:'Tripa', price:21.9, unit:'/ kg', img:'images/musculo.jpeg' },
+    { id:28, cat:'miudos', name:'Fígado Bovino', price:21.9, unit:'/ kg', img:'images/musculo.jpeg' },
+    { id:29, cat:'frango', name:'Frango Resfriado', price:11.9, unit:'/ kg', img:'images/frango-resfriado.jpeg' },
+    { id:30, cat:'frango', name:'Coxa Sobrecoxa', price:14.9, unit:'/ kg', img:'images/coxa-sobrecoxa.jpeg' },
+    { id:31, cat:'frango', name:'Coxinha da Asa', price:22.9, unit:'/ kg', img:'images/asa-de-frango.jpeg' },
+    { id:32, cat:'frango', name:'Meio Asa Tradicional', price:28.9, unit:'/ kg', img:'images/asa-de-frango.jpeg' },
+    { id:33, cat:'frango', name:'Asa', price:19.9, unit:'/ kg', img:'images/asa-de-frango.jpeg' },
+    { id:34, cat:'frango', name:'Coração de Frango', price:19.9, unit:'/ pct', img:'images/frango-resfriado.jpeg' },
+    { id:35, cat:'frango', name:'Fígado de Frango', price:11.5, unit:'/ kg', img:'images/frango-resfriado.jpeg' },
+    { id:36, cat:'frango', name:'Pé de Frango', price:11.5, unit:'/ kg', img:'images/frango-resfriado.jpeg' },
+    { id:37, cat:'suinos', name:'Pernil Sem Osso', price:24.9, unit:'/ kg', img:'images/pernil-suino-sem-osso.jpeg' },
+    { id:38, cat:'suinos', name:'Lombo Suíno', price:28.9, unit:'/ kg', img:'images/lombo-suino.jpeg' },
+    { id:39, cat:'suinos', name:'Costelinha Suína', price:32.9, unit:'/ kg', img:'images/costelinha-suina.jpeg' },
+    { id:40, cat:'suinos', name:'Carré', price:28.9, unit:'/ kg', img:'images/lombo-suino.jpeg' },
+    { id:41, cat:'suinos', name:'Suam', price:14.9, unit:'/ kg', img:'images/barriga-suina.jpeg' },
+    { id:42, cat:'suinos', name:'Panceta Suína', price:26.9, unit:'/ kg', img:'images/panceta-suina.jpeg' },
+    { id:43, cat:'suinos', name:'Barriga Suína', price:22.9, unit:'/ kg', img:'images/barriga-suina.jpeg' },
+    { id:44, cat:'suinos', name:'Papada Suína', price:22.9, unit:'/ kg', img:'images/barriga-suina.jpeg' },
+    { id:45, cat:'suinos', name:'Toicinho', price:19.9, unit:'/ kg', img:'images/toicinho-suino.jpeg' },
+    { id:46, cat:'suinos', name:'Kit Feijoada', price:19.9, unit:'/ kg', img:'images/costelinha-suina.jpeg' },
+    { id:47, cat:'temperados', name:'Coxão Duro Serenando', price:49.9, unit:'/ kg', img:'images/coxao-duro.jpeg' },
+    { id:48, cat:'temperados', name:'Cupim Temperado', price:49.9, unit:'/ kg', img:'images/capa-do-contra-file.jpeg' },
+    { id:49, cat:'temperados', name:'Kit Churrasco', price:39.9, unit:'/ kg', img:'images/picanha.jpeg' },
+    { id:50, cat:'temperados', name:'Costela Temperada', price:29.9, unit:'/ kg', img:'images/costela-p.a.jpeg' },
+    { id:51, cat:'temperados', name:'Frango Temperado', price:18.9, unit:'/ kg', img:'images/frango-resfriado.jpeg' },
+    { id:52, cat:'temperados', name:'Coxinha Temperada', price:25.9, unit:'/ kg', img:'images/asa-de-frango.jpeg' },
+    { id:53, cat:'temperados', name:'Meio da Asa Temperada', price:34.9, unit:'/ kg', img:'images/asa-de-frango.jpeg' },
+    { id:54, cat:'temperados', name:'Panceta Suína Temperada', price:29.9, unit:'/ kg', img:'images/panceta-suina.jpeg' },
+    { id:55, cat:'temperados', name:'Costelinha Suína Temperada', price:32.9, unit:'/ kg', img:'images/costelinha-suina.jpeg' },
+    { id:56, cat:'linguicas', name:'Linguiça Calabresa', price:29.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:57, cat:'linguicas', name:'Linguiça Caseira', price:28.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:58, cat:'linguicas', name:'Linguiça Boa', price:26.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:59, cat:'linguicas', name:'Linguiça Perdigão', price:26.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:60, cat:'linguicas', name:'Linguiça Sadia', price:26.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:61, cat:'linguicas', name:'Linguiça Seara', price:26.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:62, cat:'linguicas', name:'Linguiça Fina de Frango', price:26.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:63, cat:'linguicas', name:'Linguiça Fina Suína', price:26.9, unit:'/ kg', img:'images/lombao-bovino.jpeg' },
+    { id:64, cat:'linguicas', name:'Quibe', price:29.9, unit:'/ kg', img:'images/patinho.jpeg' },
+    { id:65, cat:'linguicas', name:'Disco de Carne', price:29.9, unit:'/ kg', img:'images/patinho.jpeg' },
+    { id:66, cat:'linguicas', name:'Almôndega de Carne', price:29.9, unit:'/ kg', img:'images/patinho.jpeg' },
+    { id:67, cat:'linguicas', name:'Almôndega de Frango', price:29.9, unit:'/ kg', img:'images/frango-resfriado.jpeg' },
   ];
 
   const CATEGORIES = {
@@ -1004,7 +997,7 @@
     especiais:  'Cortes Especiais',
     miudos:     'Miúdos Bovinos',
     frango:     'Aves',
-    suinos:     'Cortes Suínos',
+    suinos:     'Suínos',
     temperados: 'Temperados',
     linguicas:  'Linguiças & Outros',
   };
@@ -1038,11 +1031,10 @@
         <img class="product-img" src="${p.img}" alt="${p.name}" loading="lazy" />
         <div class="product-body">
           <div class="product-name">${p.name}</div>
-          <div class="product-desc">${p.desc}</div>
           <div class="product-footer">
-            <span class="product-price ${p.price ? '' : 'consulte'}">${priceStr}</span>
+            <span class="product-price">${priceStr}</span>
             <button class="btn-add ${added ? 'added' : ''}" data-id="${p.id}">
-              ${added ? 'Adicionado' : 'Adicionar'}
+              ${added ? 'OK' : 'Add'}
             </button>
           </div>
         </div>`;
